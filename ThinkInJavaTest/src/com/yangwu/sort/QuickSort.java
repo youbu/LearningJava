@@ -1,24 +1,11 @@
 package com.yangwu.sort;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-import com.yangwu.util.RadomArray;
-
 public class QuickSort {
 
-	public static void main(String[] args) {
-		int[] nums = RadomArray.getRadomArrays(10);
-		List<Integer> list = new ArrayList<Integer>();
-		for (int num : nums) {
-			list.add(num);
-		}
-
-		quickSort(list, 0, list.size() - 1, (o1, o2) -> o1 - o2);
-		list.stream().forEach(System.out::println);
-	}
-
+	
 	public static <T> void quickSort(List<T> list, int left, int right, Comparator<? super T> c) {
 		if(left > right) {
 			return;
