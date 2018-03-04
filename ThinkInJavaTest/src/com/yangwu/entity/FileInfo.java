@@ -1,4 +1,4 @@
-package com.yangwu;
+package com.yangwu.entity;
 
 import java.io.BufferedReader;
 import java.io.IOException;

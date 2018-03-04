@@ -1,4 +1,4 @@
-package com.yangwu;
+package com.yangwu.util;
 
 import java.io.BufferedOutputStream;
 import java.io.File;

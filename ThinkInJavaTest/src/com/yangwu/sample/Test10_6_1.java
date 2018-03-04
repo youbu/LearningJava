@@ -1,4 +1,4 @@
-package com.yangwu;
+package com.yangwu.sample;
 
 interface Game {boolean move();}
 

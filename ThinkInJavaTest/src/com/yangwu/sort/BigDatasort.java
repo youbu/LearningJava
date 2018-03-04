@@ -1,4 +1,4 @@
-package com.yangwu;
+package com.yangwu.sort;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import com.yangwu.entity.FileInfo;
 
 public class BigDatasort {
 
