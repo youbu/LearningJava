@@ -23,10 +23,10 @@ public class MergeSort {
 
 	private static void merge(int[] obj, int start, int mid, int end) {
 		int[] obj1 = Arrays.copyOfRange(obj, start, mid + 1);
-		int[] obj2 = Arrays.copyOfRange(obj, mid + 1, end);
+		int[] obj2 = Arrays.copyOfRange(obj, mid + 1, end + 1);
 		int m = 0, n = 0;
 		int temp1, temp2;
-		for (int i = start; i < end; i++) {
+		for (int i = start; i <= end; i++) {
 			temp1 = Integer.MAX_VALUE;
 			temp2 = Integer.MAX_VALUE;
 			if (m < obj1.length) {
