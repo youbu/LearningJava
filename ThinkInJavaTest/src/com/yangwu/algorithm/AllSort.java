@@ -4,6 +4,12 @@ package com.yangwu.algorithm;
 public class AllSort {
 
 	public static void permutation(char[] buf, int start, int end) {
+		
+		for (int i = 0; i <= end; i++) {
+			System.out.print(buf[i] + ",");
+		}
+		System.out.println();
+		
 		if (start == end) {// 当只要求对数组中一个字母进行全排列时，只要就按该数组输出即可
 			for (int i = 0; i <= end; i++) {
 				System.out.print(buf[i]);
@@ -25,7 +31,7 @@ public class AllSort {
 	}
 
 	public static void main(String[] args) {
-		char[] buf = new char[] { 'a', 'b', 'c' };
-		permutation(buf, 0, 2);
+		char[] buf = new char[] { 'a', 'b', 'c','d' };
+		permutation(buf, 0, buf.length-1);
 	}
 }
