@@ -77,6 +77,9 @@ public class MergeSort {
 			} else if (temp2 < temp1) {
 				obj[i] = temp2;
 				n++;
+			}else if(temp1 == temp2 && temp1 != Integer.MAX_VALUE) {
+				m++;
+				obj[i] = temp1;
 			}
 		}
 //		System.out.println();
