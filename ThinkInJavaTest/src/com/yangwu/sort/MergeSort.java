@@ -1,4 +1,4 @@
-package com.yangwu.algorithm;
+package com.yangwu.sort;
 
 import java.util.Arrays;
 

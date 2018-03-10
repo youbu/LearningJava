@@ -1,6 +1,6 @@
 package com.yangwu.test;
 
-import com.yangwu.algorithm.MergeSort;
+import com.yangwu.sort.MergeSort;
 import com.yangwu.util.RadomArray;
 
 public class MergeSortTest {
