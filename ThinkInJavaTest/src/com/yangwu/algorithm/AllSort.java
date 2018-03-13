@@ -34,4 +34,6 @@ public class AllSort {
 		char[] buf = new char[] { 'a', 'b', 'c','d' };
 		permutation(buf, 0, buf.length-1);
 	}
+	
+
 }
