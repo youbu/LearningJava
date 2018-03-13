@@ -43,11 +43,16 @@ public class LinkList<E> {
 		LinkNode<E> next = this.first.getNext();
 
 		while (head != null) {
-			next = head.getNext();
+			
 			head.setNext(pre);
 			pre = head;
-			head = next;			
+			head = next;
+			if(next != null) {
+				next = next.getNext();
+			}
 		}
+		this.last = this.first;
+		this.first = pre;
 	}
 
 	public LinkNode<E> getFirst() {
