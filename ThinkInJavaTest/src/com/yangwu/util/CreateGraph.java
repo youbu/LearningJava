@@ -7,7 +7,7 @@ import com.yangwu.entity.Edge;
 import com.yangwu.entity.Node;
 
 public class CreateGraph {
-	
+
 	public static List<Node> createGraph() {
 		List<Node> res = new ArrayList<Node>();
 
@@ -71,23 +71,26 @@ public class CreateGraph {
 
 		return res;
 	}
-	
-	public static void printGraph() {
-		List<Node> list = createGraph();
-		List<Edge>edges;
-		
+
+	public static void printGraph(List<Node>list) {
+		List<Edge> edges;
+
 		for (Node node : list) {
 			edges = node.getEdges();
 			for (Edge edge : edges) {
-				System.out.println(edge.toString());
+				System.out.println(edge.toString() + "  :  " + edge.getWeight());
 			}
-		}		
+		}
 	}
-	
-	public static void sort(List<Node>list) {
-		List<Node>sortedList = new ArrayList<Node>();
-		List<Node>temp = new ArrayList<Node>();
-		while (list.size()>0) {
+
+	/**
+	 * Õÿ∆À≈≈–Ú
+	 * @param list
+	 */
+	public static void sort(List<Node> list) {
+		List<Node> sortedList = new ArrayList<Node>();
+		List<Node> temp = new ArrayList<Node>();
+		while (list.size() > 0) {
 			temp.clear();
 			for (Node node : list) {
 				if (node.getInDegree() == 0) {
@@ -98,14 +101,51 @@ public class CreateGraph {
 			}
 			list.removeAll(temp);
 		}
-		
+
 		for (int i = 0; i < sortedList.size(); i++) {
-			if (i == sortedList.size()-1) {
+			if (i == sortedList.size() - 1) {
 				System.out.print(sortedList.get(i).getNodeName());
-			}else {
+			} else {
 				System.out.print(sortedList.get(i).getNodeName() + " --> ");
 			}
 		}
+
+	}
+
+	/**
+	 * ”–»®Õº
+	 * @return
+	 */
+	public static List<Node> getWeightGraph() {
+		List<Node> list = new ArrayList<Node>();
+
+		Node nodeS = new Node("S");
+		Node nodeT = new Node("T");
+		Node nodeX = new Node("X");
+		Node nodeY = new Node("Y");
+		Node nodeZ = new Node("Z");
+
+		list.add(nodeS);
+		list.add(nodeT);
+		list.add(nodeX);
+		list.add(nodeY);
+		list.add(nodeZ);
 		
+		nodeS.addNext(nodeT, 6);
+		nodeS.addNext(nodeY, 4);
+
+		nodeT.addNext(nodeX, 3);
+		nodeT.addNext(nodeY, 2);
+
+		nodeX.addNext(nodeZ, 4);
+
+		nodeZ.addNext(nodeX, 5);
+		nodeZ.addNext(nodeS, 7);
+
+		nodeY.addNext(nodeT, 1);
+		nodeY.addNext(nodeX, 9);
+		nodeY.addNext(nodeZ, 3);
+
+		return list;
 	}
 }
