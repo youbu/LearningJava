@@ -29,6 +29,21 @@ public class Node {
 		}
 	}
 
+	public int getWeight(Node dest) {
+		int weight = Integer.MAX_VALUE;
+		if (this.equals(dest)) {
+			weight = 0;
+		} else {
+			for (Edge edge : this.edges) {
+				if (edge.getDest().equals(dest)) {
+					weight = edge.getWeight();
+					break;
+				}
+			}
+		}
+		return weight;
+	}
+
 	/**
 	 * 移除该节点的所有边,只有在入度为0的情况下生效
 	 */
