@@ -3,5 +3,18 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>yangMVC</display-name>
+  <servlet>
+  	<servlet-name>yangwuMVC</servlet-name>
+  	<servlet-class>com.yangwu.framework.servlet.YWDispatchServlet</servlet-class>  	
+  	<init-param>
+  		<param-name>contextConfigLocation</param-name>
+  		<param-value>config.properties</param-value>
+  	</init-param>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>yangwuMVC</servlet-name>
+  	<url-pattern>/</url-pattern>
+  </servlet-mapping>
 </web-app>
