@@ -8,7 +8,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 @Retention(RUNTIME)
-@Target({FIELD,ElementType.CONSTRUCTOR,ElementType.METHOD})
+@Target({ FIELD, ElementType.CONSTRUCTOR, ElementType.METHOD })
 public @interface YWAutowired {
-
+	String value() default "";
 }
