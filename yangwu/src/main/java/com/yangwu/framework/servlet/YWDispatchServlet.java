@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.yangwu.framework.annotation.YWAutowired;
 import com.yangwu.framework.annotation.YWController;
 import com.yangwu.framework.annotation.YWRequestMapping;
+import com.yangwu.framework.annotation.YWResquestParam;
 import com.yangwu.framework.annotation.YWService;
 
 public class YWDispatchServlet extends HttpServlet {
@@ -218,6 +220,7 @@ public class YWDispatchServlet extends HttpServlet {
 		
 		Method method = (Method) handlemapping.get(url);
 		
+		
 //		method.invoke(obj, args)
 //		resp.getWriter().write("Hello MVC");
 	}
@@ -226,5 +229,32 @@ public class YWDispatchServlet extends HttpServlet {
 		char[] chars = className.toCharArray();
 		chars[0] += 32;
 		return String.valueOf(chars);
+	}
+	
+	class Handler {
+		private Object object;
+		
+		private Method method;
+		
+		private HttpServletRequest request;
+		
+		public Handler(Object obj,Method method,HttpServletRequest request) {
+			this.object = obj;
+			this.method = method;
+			this.request = request;
+		}
+		
+		public void exec() {
+			Parameter[] params = method.getParameters();
+			YWResquestParam ywResquestParam = null;
+			for (Parameter param : params) {
+				ywResquestParam = param.getAnnotation(YWResquestParam.class);
+				param.getName();
+			}
+			
+			
+			
+		}
+		
 	}
 }
