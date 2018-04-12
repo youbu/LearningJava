@@ -1,9 +1,15 @@
 package com.yangwu.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Node {
+public class Node implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5293847579074174828L;
 
 	private List<Edge> edges;
 
