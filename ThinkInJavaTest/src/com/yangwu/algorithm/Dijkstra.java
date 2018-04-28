@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.junit.Test;
+
 import com.yangwu.entity.Edge;
 import com.yangwu.entity.Node;
 
@@ -45,6 +47,7 @@ public class Dijkstra {
 		}
 	}
 
+	
 	public void dijkstraSearch() {
 		List<Node> list = new ArrayList<Node>();
 		list.addAll(graph);

@@ -17,6 +17,10 @@ public class Node implements Serializable {
 
 	private int inDegree;
 
+	public Node() {
+		
+	}
+	
 	public Node(String name) {
 		this.nodeName = name;
 		this.inDegree = 0;
