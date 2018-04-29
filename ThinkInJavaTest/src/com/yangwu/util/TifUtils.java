@@ -1,7 +1,6 @@
 package com.yangwu.util;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
-
+import java.awt.image.RenderedImage;
 import java.awt.image.renderable.ParameterBlock;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -12,10 +11,13 @@ import java.util.List;
 
 import javax.media.jai.JAI;
 import javax.media.jai.PlanarImage;
+import javax.media.jai.RenderedOp;
 
 import com.sun.media.jai.codec.FileSeekableStream;
 import com.sun.media.jai.codec.ImageCodec;
+import com.sun.media.jai.codec.ImageDecoder;
 import com.sun.media.jai.codec.ImageEncoder;
+import com.sun.media.jai.codec.JPEGEncodeParam;
 import com.sun.media.jai.codec.TIFFEncodeParam;
 
 public class TifUtils {
@@ -29,6 +31,8 @@ public class TifUtils {
 		
 		try {
 			combineToTif(fileList, "D:\\img", "test.tif");
+			
+			separateTif("D:\\img\\test.tif","D:\\img");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -81,6 +85,47 @@ public class TifUtils {
 		}
 		
 		os.close();
+		
+	}
+
+	public static void separateTif(String tifFile,String destPath) throws IOException {
+		FileSeekableStream ss = new FileSeekableStream(tifFile);
+		
+		TIFFEncodeParam encodeParam = null;
+		
+		TIFFEncodeParam param = new TIFFEncodeParam();
+		
+		TIFFEncodeParam param1 = new TIFFEncodeParam();
+		
+		ImageDecoder dec = ImageCodec.createImageDecoder("tiff", ss, encodeParam);
+		
+		int count = dec.getNumPages();
+		
+		System.out.println("**************Page Count : " + count + "**********************");
+		
+		
+		param.setCompression(TIFFEncodeParam.COMPRESSION_GROUP4);
+		
+		param.setLittleEndian(false);
+		
+		for(int i = 0;i<count;i++) {
+			RenderedImage page = dec.decodeAsRenderedImage(i);
+			
+			File file = new File(destPath + File.separator + "img" + i + ".tif" );
+			
+			ParameterBlock pb = new ParameterBlock();
+			
+			pb.addSource(page);
+			
+			pb.add(file.toString());
+			
+			pb.add("tiff");
+			
+			pb.add(param1);
+			
+			RenderedOp renderedOp = JAI.create("filestore", pb);
+			renderedOp.dispose();
+		}
 		
 	}
 }
