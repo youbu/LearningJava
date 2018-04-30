@@ -8,9 +8,9 @@ import net.sf.cglib.proxy.MethodProxy;
 
 public class ProxyFactory implements MethodInterceptor {
 
-	private Class target;
+	private Class<?> target;
 
-	public ProxyFactory(Class target) {
+	public ProxyFactory(Class<?> target) {
 		this.target = target;
 	}
 	
@@ -24,7 +24,7 @@ public class ProxyFactory implements MethodInterceptor {
 	@Override
 	public Object intercept(Object arg0, Method method, Object[] args, MethodProxy proxy) throws Throwable {
 		System.out.println("==========before==============");
-		Object object = proxy.invokeSuper(arg0, args);
+		proxy.invokeSuper(arg0, args);
 		System.out.println("==========after===============");
 		return arg0;
 	}
