@@ -16,5 +16,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="D:/img/jai_codec-1.1.3.jar"/>
+	<classpathentry kind="lib" path="D:/img/jai-core-1.1.3.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
