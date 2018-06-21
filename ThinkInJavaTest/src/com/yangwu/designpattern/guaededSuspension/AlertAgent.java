@@ -47,9 +47,9 @@ public class AlertAgent {
 	public void init() {
 		Thread connectingThread = new Thread(new ConnectingTask());
 
-		connectingThread.start();
+//		connectingThread.start();
 
-		heartbeatTimer.schedule(new HeartBeatTask(), 60000, 2000);
+		heartbeatTimer.schedule(new HeartBeatTask(), 6000, 2000);
 	}
 
 	public void discinnect() {
@@ -96,7 +96,7 @@ public class AlertAgent {
 
 		@Override
 		public void run() {
-			if (!testConnection()) {
+			if (testConnection()) {
 				onDisconnected();
 				reConnected();
 			}

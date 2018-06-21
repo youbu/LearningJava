@@ -1,5 +1,8 @@
 package com.yangwu.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Person {
 
 	public Person() {
@@ -18,6 +21,8 @@ public class Person {
 
 	private int age;
 
+	private List<Person>son;
+	
 	public int getAge() {
 		return age;
 	}
@@ -44,8 +49,16 @@ public class Person {
 
 	@Override
 	public String toString() {
-		String str = "name : " + name + " sex : " + sex + " age : " + age;
+		String str = "name : " + name + " sex : " + sex + " age : " + age + " son : " + son.size();
 		return str;
+	}
+
+	public List<Person> getSon() {
+		return son;
+	}
+
+	public void setSon(List<Person> son) {
+		this.son = son;
 	}
 
 }

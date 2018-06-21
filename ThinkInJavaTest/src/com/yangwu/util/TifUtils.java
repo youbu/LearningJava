@@ -104,8 +104,8 @@ public class TifUtils {
 		System.out.println("**************Page Count : " + count + "**********************");
 		
 		
-		param.setCompression(TIFFEncodeParam.COMPRESSION_GROUP4);
-		
+//		param.setCompression(TIFFEncodeParam.COMPRESSION_GROUP4);
+		param.setCompression(TIFFEncodeParam.COMPRESSION_DEFLATE);
 		param.setLittleEndian(false);
 		
 		for(int i = 0;i<count;i++) {

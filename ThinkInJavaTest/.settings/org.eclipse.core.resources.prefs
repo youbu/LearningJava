@@ -5,3 +5,5 @@ eclipse.preferences.version=1
 encoding//src/com/yangwu/algorithm/AllSort.java=UTF-8
 encoding//src/com/yangwu/algorithm/SubSymmetricalString.java=UTF-8
 encoding//src/com/yangwu/sort/MergeSort.java=UTF-8
+encoding//src/com/yangwu/util/ClassLoading.java=UTF-8
+encoding//src/com/yangwu/util/SubClassLoading.java=UTF-8
